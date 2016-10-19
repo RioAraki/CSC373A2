@@ -1,5 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import timeit
+from timeit import Timer
 
 def randomGraph(nV,d=3):
     E = np.around(np.random.rand(nV, nV), decimals=d)
@@ -8,16 +10,17 @@ def randomGraph(nV,d=3):
     return E
 
 
-def circleGraph(nV, show=True, d=3):
+def circleGraph(nV, d=3):
+    
     r = np.around(np.sqrt(np.random.rand(nV)), d)   
     alpha = 2 * np.pi * np.around(np.random.uniform(0,1,nV), d)
     X = r * np.cos(alpha)
     Y = r * np.sin(alpha)
     
-    if show:
-        plt.plot(X, Y, 'ro')
-        plt.axis([-1, 1, -1, 1])
-        plt.show()
+    #if show:
+        #plt.plot(X, Y, 'ro')
+        #plt.axis([-1, 1, -1, 1])
+        #plt.show()
         
     E = np.zeros((nV,nV))    
     for i in range(nV):
@@ -27,6 +30,7 @@ def circleGraph(nV, show=True, d=3):
                 
     return E
 
-
-
+nV = 10000
+t = Timer(lambda: circleGraph(nV))
+print (t.timeit(number=1))
     
