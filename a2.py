@@ -38,26 +38,21 @@ def prim(E):
     pq=[(cost[i],i) for i in range(nV)]
     heapq.heapify(pq)
     count=nV
-    totalcost = 0
     while count!=0:
         v=heapq.heappop(pq)
         visited[v[1]]=True
         
-        # added:
-        totalcost += v[0]
-        
-        print (v)
         
         for node in range(nV):
-            if cost[node]>E[node,v[1]] and v[1]!=node:
+            if cost[node]>E[node,v[1]] and v[1]!=node and not visited[node]:
                 cost[node]=E[node,v[1]]
                 
         count-=1
         pq=[(cost[j],j) for j in range(nV) if not visited[j]]
         heapq.heapify(pq)
-    return sum(cost), visited, totalcost
+    return sum(cost)
 
-e = randomGraph(4,2)
+e = randomGraph(10,2)
 print (prim(e))
 
 #nV = 10000
