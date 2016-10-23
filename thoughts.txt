@@ -1,5 +1,0 @@
-1. Use python
-2. Learn how to construct a complete graph given the number of vertices (there would be limit on weight of edges like from 0 to 1 or vertice be on unit circle)
-  2 - Without using any library?
-3. Find MST and accumulate the cost of each edge to find the size of MST.
-  3 - Algorithms learnt => Prim/ Kruskal
