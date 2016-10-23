@@ -15,22 +15,23 @@ def krustal_algorithm(nV, E):
 def prim_algorithm(nV, E):
     cost=[math.inf]*nV
     cost[0]=0
-    prev=[None]*nV
+    visited=[False]*nV
     pq=[(cost[i],i) for i in range(nV)]
     heapq.heapify(pq)
-    count=nV-1
+    count=nV
     while count!=0:
         v=heapq.heappop(pq)
+        visited[v[1]]=True
         for node in range(nV):
             if cost[node]>E[node,v[1]] and v[1]!=node:
                 cost[node]=E[node,v[1]]
-                prev[node]=v[1]
+                
         count-=1
-        pq=[(cost[j],j) for j in range(nV) if prev[j]==None]
+        pq=[(cost[j],j) for j in range(nV) if not visited[j]]
         heapq.heapify(pq)
-    return sum(cost)
+    return sum(cost), visited
     
 if __name__=="__main__":
-    nV=10
+    nV=1000
     E=randomGraph(nV,d=3)
     print(prim_algorithm(nV, E))
