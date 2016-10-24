@@ -6,7 +6,7 @@ public class Q1 {
 	 
 	public static double randomMST(int n) {
 		ArrayList<Double> edges = new ArrayList();
-		ArrayList<Double> tempEdges = new ArrayList();
+		ArrayList<Double> visitedEdges = new ArrayList();
 		double sum = 0;
 		for (int i = 2; i < n+1; i++) { // i means number of vertices currently have
 			for (int j = 0; j < i-1; j++) { // j means number of edges currently should have for MST
@@ -17,7 +17,7 @@ public class Q1 {
 			while (edges.size() > (i-1)) {
 				Collections.sort(edges);
 				edges.remove(edges.size()-1);
-				System.out.println(edges);
+				//System.out.println(edges);
 			} // sort the list and remove the largest one until the size of edge = j
 		}
 		for (Double d : edges)
@@ -27,7 +27,7 @@ public class Q1 {
 	}
 	
 	public static void main(String [] args) {
-		randomMST(50000);
+		randomMST(1000);
 	}
 	
 }
