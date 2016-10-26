@@ -19,17 +19,6 @@ public class Pair {
   
   public String toString() {
 	String result = "(" + Double.toString(getLeft()) + ", " + Double.toString(getRight()) + ", " + Double.toString(getDistance()) + ")";
-	return result;
-	  
+	return result;	  
   } 
-
-//  public int hashCode() { return left.hashCode() ^ right.hashCode(); }
-
-//  public boolean equals(Object o) {
-//    if (!(o instanceof Pair)) return false;
-//    Pair pairo = (Pair) o;
-//    return this.left.equals(pairo.getLeft()) &&
-//           this.right.equals(pairo.getRight());
-//  }
-
 }
